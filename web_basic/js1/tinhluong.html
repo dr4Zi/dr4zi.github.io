@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tính lương</title>
+	<style type="text/css">
+		#form_tong {
+			width: 280px;
+			margin: 0 auto;
+			background-color: #fcfcfc;
+			padding: 20px 50px 40px;
+			box-shadow: 1px 4px 10px 1px #aaa;
+			font-family: sans-serif;
+		}
+
+		#form_tong * {
+			box-sizing: border-box;
+		}
+
+		#form_tong h2{
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		#form_tong input {
+			margin-bottom: 15px;
+			display: block;
+			height: 32px;
+			padding: 6px 16px;
+			width: 150px;
+			border: none;
+			background-color: #f3f3f3;
+			
+		}
+
+		#form_tong button[type=button] {
+			display: block;
+			margin: 20px auto 0;
+			width: 150px;
+			height: 40px;
+			border-radius: 25px;
+			border: none;
+			color: #eee;
+			font-weight: 700;
+			box-shadow: 1px 4px 10px 1px #aaa;
+			
+			background: #207cca; /* Old browsers */
+			background: -moz-linear-gradient(left, #207cca 0%, #9f58a3 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(left, #207cca 0%,#9f58a3 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to right, #207cca 0%,#9f58a3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207cca', endColorstr='#9f58a3',GradientType=1 ); /* IE6-9 */
+		}
+	</style>
+</head>
+<body>
+	<div id="form_tong">
+		<h2 class="header">Tính lương</h2>
+		<div>
+			<form>
+				<h5>Nhập lương:</h5>
+				<input type="number" id="luong" placeholder="Triệu VND"></input>
+				<button type="button" onclick="calculate()">Tính lương</button>
+				<h5 id="ket_qua">Kết quả</h5>
+			</form>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function calculate(){
+			let luong = document.getElementById('luong').value;
+			let thue;
+			let nhan;
+			if (luong < 7) {
+			thue = luong * 10/ 100;
+			nhan = luong - thue;
+			}
+		else if (luong >= 7 && luong < 15) {
+				thue = luong * 0.2;
+				nhan = luong - thue;
+			}
+		else if (luong == 15) {
+			thue= luong * 0.3;
+			nhan= luong - thue;
+		}
+			document.getElementById('ket_qua').innerHTML = `Lương là ${luong} triệu / Thuế là ${thue} triệu / Thực nhận là ${nhan} triệu`
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tính năm âm lịch</title>
+	<style type="text/css">
+		#form_tong {
+			width: 280px;
+			height: 130px;
+			margin: 0 auto;
+			background-color: #fcfcfc;
+			padding: 20px 50px 40px;
+			box-shadow: 1px 4px 10px 1px #aaa;
+			font-family: sans-serif;
+		}
+
+		#form_tong * {
+			box-sizing: border-box;
+		}
+
+		#form_tong h2{
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		#form_tong input {
+			margin-bottom: 15px;
+			height: 32px;
+			padding: 6px 16px;
+			width: 100px;
+			border: none;
+			background-color: #f3f3f3;
+			
+		}
+
+		#form_tong button[type=button] {
+			
+			margin: 5px;
+			margin-top: 20px;
+			width: 50px;
+			height: 40px;
+			border-radius: 25px;
+			border: none;
+			color: #eee;
+			font-weight: 700;
+			box-shadow: 1px 4px 10px 1px #aaa;
+
+			background: #207cca; /* Old browsers */
+			background: -moz-linear-gradient(left, #207cca 0%, #9f58a3 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(left, #207cca 0%,#9f58a3 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to right, #207cca 0%,#9f58a3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207cca', endColorstr='#9f58a3',GradientType=1 ); /* IE6-9 */
+		}
+	</style>
+</head>
+<body>
+	<div id="form_tong" >
+		<h2 class="header">Tính Năm Âm Lịch</h2>
+		<div style="width: 105px; height: 100px; float: left; margin-top: -35px;">
+			<h5>Năm dương lịch</h5>
+			<input type="number" id="duong_lich"></input >
+		</div>
+		<div style="float: left;">
+			<button type="button" onclick="calculate()">=></button>
+		</div>
+		<div style="width: 100px; height: 100px; float: left; margin-top: -35px; margin-left: 5px;">
+			<h5>Năm âm lịch</h5>
+			<input type="text" id="am_lich"></input>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function calculate(){
+			let nam = parseInt(document.getElementById('duong_lich').value);
+			let can;
+			let chi;
+			switch((nam - 3)%10){
+				case 0:
+				can = 'Quý';
+				break;
+				case 1:
+				can = 'Giáp';
+				break;
+				case 2:
+				can = 'Ất';
+				break;
+				case 3:
+				can = 'Bính';
+				break;
+				case 4:
+				can = 'Đinh';
+				break;
+				case 5:
+				can = 'Mậu';
+				break;
+				case 6:
+				can = 'Kỷ';
+				break;
+				case 7:
+				can = 'Canh';
+				break;
+				case 8:
+				can = 'Tân';
+				break;
+				case 9:
+				can = 'Nhâm';
+				break;
+			};
+			switch((nam - 3)%12){
+				case 0:
+				chi = 'Hợi';
+				break;
+				case 1:
+				chi = 'Tý';
+				break;
+				case 2:
+				chi = 'Sửu';
+				break;
+				case 3:
+				chi = 'Dần';
+				break;
+				case 4:
+				chi = 'Mão';
+				break;
+				case 5:
+				chi = 'Thìn';
+				break;
+				case 6:
+				chi = 'Tỵ';
+				break;
+				case 7:
+				chi = 'Ngọ';
+				break;
+				case 8:
+				chi = 'Mùi';
+				break;
+				case 9:
+				chi = 'Thân';
+				break;
+				case 10:
+				chi = 'Dậu';
+				break;
+				case 9:
+				chi = 'Tuất';
+				break;
+			}
+			document.getElementById('am_lich').value = `${can} ${chi}`
+		}
+	</script>
+</body>
+</html>
