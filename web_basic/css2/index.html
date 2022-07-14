@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>San Hô</title>
+	<style type="text/css">
+		body{
+			height: 600px;
+			margin: 50px;
+		}
+		.left{
+			width: 20%;
+			height: 600px;
+			background-color: black;
+			position: relative;
+			float: left;
+		}
+		.left > img{
+			position: absolute;
+			left: 20%;
+			z-index: 1;
+		}
+		.mid{
+			position: relative;
+			width: 60%;
+			background-image: url(IMAGES/sua1.gif);
+			background-repeat: no-repeat;
+			background-position: center;
+			float: left;
+		}
+		.mid > h1{
+			position: absolute;
+			top: 5%;
+			left: 10%;
+			color: orange;
+		}
+		.mid > span{
+			position: absolute;
+			top: 15%;
+			left: 10%;
+		}
+		.mid > table{
+			position: absolute;
+			top: 30%;
+			left: 10%;
+			background-color: lightgreen;
+			width: 60%;
+			height: 70%;
+		}
+		.tittle{
+			text-align: right;
+		}
+		#btn{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div class="left">
+			<img src="IMAGES/sanho.gif" alt="San hô">
+		</div>
+		<div class="mid">
+			<img src="IMAGES/soc.jpg" alt="">
+			<h1>THAM GIA CLB</h1>
+			<span>Quý độc giả hãy điền đầy đủ thông tin để tham gia phát triển Câu lạc bộ 
+				<br>ngày càng vững mạnh hơn.</span>
+				<table>
+					<form action="">
+						<tr>
+							<td class="tittle">Họ và tên: </td>
+							<td>
+								<input type="text">
+							</td> 
+						</tr>
+						<tr>
+							<td class="tittle">Địa chỉ: </td>
+							<td>
+								<input type="text">
+							</td>
+						</tr>
+						<tr>
+							<td class="tittle">Email: </td>
+							<td>
+								<input type="email">
+							</td>
+						</tr>
+						<tr>
+							<td class="tittle">Điện thoại: </td>
+							<td>
+								<input type="number">
+							</td>
+						</tr>
+						<tr>
+							<td class="tittle">Ngày sinh: </td>
+							<td>
+								<input type="date">
+							</td>
+						</tr>
+						<tr>
+							<td class="tittle">Đề tài: </td>
+							<td>
+								<select>
+									<option selected>Tìm hiểu Sứa biển</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="tittle">Nhóm: </td>
+							<td>
+								<input type="radio" name="nhom" >Nghiên cứu<br>
+								<input type="radio" name="nhom">Hải Ngư<br>
+								<input type="radio" name="nhom">Viễn dương<br>
+								<input type="radio" name="nhom">Mỹ thuật<br>
+								<input type="radio" name="nhom">Thực phẩm<br>
+								<input type="radio" name="nhom">Sinh viên<br>
+							</td>
+						</tr>
+						<tr>
+							<td class="tittle">Gửi hình: </td>
+							<td>
+								<input type="file" src="" alt="">
+							</td>
+						</tr>
+						<tr>
+							<td class="tittle">Tài liệu: </td>
+							<td>
+								<input type="checkbox" name="" id="">Sinh vật Biển<br>
+								<input type="checkbox" name="" id="">Các loài Sứa biển<br>
+								<input type="checkbox" name="" id="">San hô<br>
+								<input type="checkbox" name="" id="">Môi trường biển<br>
+								<input type="checkbox" name="" id="">Khí hậu<br>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div id="btn">
+									<button>Tham gia</button>
+									<button>Xóa thông tin</button>
+								</div>
+							</td>
+						</tr>
+					</form>
+				</table>
+			</div>
+			<div class="right">
+				<img src="IMAGES/nhom1a.jpg" alt="">
+				<img src="IMAGES/nhom1b.jpg" alt="">
+				<img src="IMAGES/nhom1c.jpg" alt="">
+				<img src="IMAGES/nhom1d.jpg" alt="">
+			</div>
+		</div>
+	</body>
+	</html>
