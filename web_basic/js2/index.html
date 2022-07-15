@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Loop and input</title>
+	<style type="text/css">
+		#div_tong {
+			width: 280px;
+			margin: 0 auto;
+			background-color: #fcfcfc;
+			padding: 20px 50px 40px;
+			box-shadow: 1px 4px 10px 1px #aaa;
+			font-family: sans-serif;
+		}
+
+		#div_tong * {
+			box-sizing: border-box;
+		}
+
+		#div_tong h2{
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		#div_tong input {
+			margin-bottom: 15px;
+			display: block;
+			height: 32px;
+			padding: 6px 16px;
+			width: 150px;
+			border: none;
+			background-color: #f3f3f3;
+			
+		}
+
+		#div_tong button[type=button] {
+			display: block;
+			margin: 20px auto 0;
+			width: 150px;
+			height: 40px;
+			border-radius: 25px;
+			border: none;
+			color: #eee;
+			font-weight: 700;
+			box-shadow: 1px 4px 10px 1px #aaa;
+			
+			background: #207cca; /* Old browsers */
+			background: -moz-linear-gradient(left, #207cca 0%, #9f58a3 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(left, #207cca 0%,#9f58a3 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to right, #207cca 0%,#9f58a3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207cca', endColorstr='#9f58a3',GradientType=1 ); /* IE6-9 */
+		}
+	</style>
+</head>
+<body>
+	<div id="div_tong">
+		<h2 class="header">Loop & Input</h2>
+		<div>
+			<form onsubmit="return false">
+				<h5>Nhập một số:</h5>
+				<input type="number" id="so"></input>
+				<button type="button" onclick="calculate()" id="btn">Tính toán</button>
+				<h5 id="chan_le">Kết quả</h5>
+				<div style="width: 200px;">
+					<h5 id="so_nguyen_to"></h5>
+				</div>
+				<div style="width: 200px;">
+					<h5 id="in_so_man_hinh"></h5>
+				</div>
+				<div style="width: 200px;">
+					<h5 id="in_lan_nhap_so"></h5>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		document.getElementById("so")
+		.addEventListener("keyup", function(event) {
+			event.preventDefault();
+			if (event.keyCode === 13) {
+				document.getElementById("btn").click();
+			}
+		});
+		let lan_nhap_so = 0;
+		function calculate(){
+			let so = parseFloat(document.getElementById('so').value);
+			let kiem_tra_so;
+			let so_nguyen_to;
+			
+			document.getElementById('in_so_man_hinh').innerHTML = '';
+
+			// kiem tra chan le
+			if (so % 2 == 0) {
+				kiem_tra_so = 'chẵn'
+			} 
+			else if (so % 2 == 1) {
+				kiem_tra_so = 'lẻ'
+			} 
+			else {
+				kiem_tra_so = ' thập phân'
+			};
+
+			// kiem tra so nguyen to
+			let flag = true;
+			if (Number.isInteger(so) && so > 0){
+				if (so < 2){
+					flag = false;
+				}
+				else{
+					for (var i = 2; i < so-1; i++)
+					{
+						if (so % i == 0){
+							flag = false;
+							break;
+						}
+					}
+				}
+			}
+			else {
+				flag = false;
+			};
+
+			// in so ra man hinh
+			if(so>0){
+				for(let i = 1; i <= so ; i++){
+					document.getElementById('in_so_man_hinh').innerHTML +=(i + ' ');
+				}
+                if(Number.isInteger(so) === false)
+                	document.getElementById('in_so_man_hinh').innerHTML +=(so);
+            } else {
+                if(Number.isInteger(so) === false)
+                	document.getElementById('in_so_man_hinh').innerHTML +=(so + ' ');
+                for(let i = 1; i >= so ; so++){
+                	document.getElementById('in_so_man_hinh').innerHTML +=(Math.ceil(so) + ' ');
+                }
+            }
+
+			// tra ve ket qua
+			document.getElementById('chan_le').innerHTML = "Số bạn vừa nhập là số " +kiem_tra_so
+			if (flag == true) {
+				document.getElementById('so_nguyen_to').innerHTML = "Số bạn vừa nhập là số nguyên tố "
+			} else {
+				document.getElementById('so_nguyen_to').innerHTML = "Số bạn vừa nhập không phải là số nguyên tố "
+			}
+
+			// so lan nhap
+			lan_nhap_so += 1;
+			document.getElementById('in_lan_nhap_so').innerHTML = ("Bạn vừa nhập " + lan_nhap_so + " lần");
+		}
+	</script>
+</body>
+</html>
